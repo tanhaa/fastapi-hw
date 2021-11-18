@@ -2,9 +2,11 @@ Fast API Hello world created using:
 https://fastapi.tiangolo.com/deployment/docker/
 
 `docker build -t fastapi-hw .`
-`docker run -d --name fastapi-hw-container -p 80:80 fastapi-hw`
+`docker run -d --name fastapi-hw-container -p 8080:8080 fastapi-hw`
+# tail logs: 
+`docker logs -f fastapi-hw-container`
 
-**Test: **
+**Test:**
 
 ```
 # using httpie
@@ -49,3 +51,14 @@ http://127.0.0.1/items/5?q=somequery
 
 To access swagger docs: 
 http://127.0.0.1/docs
+
+===================================
+
+**Adding helm**
+```
+> mkdir charts
+> cd charts
+> helm create fastapi-hw
+
+```
+The above will create a directory named charts with an initial chart.  
