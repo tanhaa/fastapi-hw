@@ -9,7 +9,7 @@ https://fastapi.tiangolo.com/deployment/docker/
 ```
 # using httpie
 
-❯ http get localhost
+❯ http get localhost:8080
 HTTP/1.1 200 OK
 content-length: 17
 content-type: application/json
@@ -20,7 +20,7 @@ server: uvicorn
     "Hello": "World"
 }
 
-❯ http http://localhost/items/5 q==somequery
+❯ http http://localhost:8080/items/5 q==somequery
 HTTP/1.1 200 OK
 content-length: 29
 content-type: application/json
