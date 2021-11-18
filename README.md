@@ -2,7 +2,7 @@ Fast API Hello world created using:
 https://fastapi.tiangolo.com/deployment/docker/
 
 `docker build -t fastapi-hw .`
-`docker run -d --name fastapi-hw-container -p 80:80 fastapi-hw`
+`docker run -d --name fastapi-hw-container -p 8080:8080 fastapi-hw`
 
 **Test: **
 
