@@ -4,7 +4,10 @@ https://fastapi.tiangolo.com/deployment/docker/
 `docker build -t fastapi-hw .`
 `docker run -d --name fastapi-hw-container -p 8080:8080 fastapi-hw`
 
-**Test: **
+# tail logs: 
+`docker logs -f fastapi-hw-container`
+
+**Test:**
 
 ```
 # using httpie
@@ -49,3 +52,28 @@ http://127.0.0.1/items/5?q=somequery
 
 To access swagger docs: 
 http://127.0.0.1/docs
+
+===================================
+
+**Adding helm**
+```
+> mkdir charts
+> cd charts
+> helm create fastapi-hw
+
+```
+The above will create a directory named charts with an initial chart.  
+Edit values.yaml file accordingly and also deployment.yaml file to the right port
+
+```
+> helm lint
+
+# from root repo folder
+> helm upgrade --install fastapi-hw --dry-run --debug ./charts/fastapi-hw
+# if all is good
+> helm upgrade --install fastapi-hw ./charts/fastapi-hw
+# check if all is well
+> helm ls
+> kubectl get pods
+> kubectl get service fastapi-hw
+```
