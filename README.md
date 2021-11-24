@@ -3,6 +3,7 @@ https://fastapi.tiangolo.com/deployment/docker/
 
 `docker build -t fastapi-hw .`
 `docker run -d --name fastapi-hw-container -p 8080:8080 fastapi-hw`
+
 # tail logs: 
 `docker logs -f fastapi-hw-container`
 
@@ -11,7 +12,7 @@ https://fastapi.tiangolo.com/deployment/docker/
 ```
 # using httpie
 
-❯ http get localhost
+❯ http get localhost:8080
 HTTP/1.1 200 OK
 content-length: 17
 content-type: application/json
@@ -22,7 +23,7 @@ server: uvicorn
     "Hello": "World"
 }
 
-❯ http http://localhost/items/5 q==somequery
+❯ http http://localhost:8080/items/5 q==somequery
 HTTP/1.1 200 OK
 content-length: 29
 content-type: application/json
