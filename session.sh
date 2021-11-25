@@ -53,7 +53,7 @@ git push origin add_argo
 
 argocd app sync fastapi-hw
 
-http http://localhost:8080/amit
+http http://localhost:8080/name/amit
 
 # cleanup
 #yes | argocd app delete fastapi-hw
