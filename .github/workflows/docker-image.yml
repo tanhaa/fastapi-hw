@@ -1,0 +1,25 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Dockerhub login
+      env:
+        DOCKER_USER: ${{secrets.DH_USER}}
+        DOCKER_PASSWORD: ${{secrets.DH_PASSWORD}}
+      run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+    - name: Build image
+      run: docker build . --file Dockerfile --tag fastapi-hw:$(date +%s) 
+    - name: Docker push
+      run: docker push ${{secrets.DH_USER}}/fastapi-hw
