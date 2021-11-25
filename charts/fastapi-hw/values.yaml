@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: fastapi-hw
+  repository: amalhotra/fastapi-hw
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: latest
+  tag: main
 
 imagePullSecrets: []
 nameOverride: ""
