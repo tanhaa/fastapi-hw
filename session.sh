@@ -42,15 +42,17 @@ argocd app create fastapi-hw --repo https://github.com/tanhaa/fastapi-hw --dest-
 http http://localhost:8080/items/5 q==somequery
 
 # push some changes
-git add *
-git commit -m "added new route"
-git push origin add_argo
+# git add *
+# git commit -m "added new route"
+# git push origin add_argo
 
-argocd app sync fastapi-hw
+# argocd app sync fastapi-hw
 
-http http://localhost:8080/name/amit
+# http http://localhost:8080/name/amit
+argocd app history fastapi-hw
 
 # cleanup
 #yes | argocd app delete fastapi-hw
 #kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 #kubectl delete ns argocd
+#kubectl delete ns fastapi-hw
