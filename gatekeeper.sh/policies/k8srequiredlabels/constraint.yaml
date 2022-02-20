@@ -1,0 +1,20 @@
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sRequiredLabels
+metadata:
+  name: ns-must-have-owner
+spec:
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Namespace"]
+    excludedNamespaces:
+    - kube-system
+    - kube-logging
+    - default
+    - gatekeeper-system
+    - fastapi-hw
+    - kube-public
+    - argocd
+    - kube-node-lease
+  parameters:
+    labels: ["owner"]
